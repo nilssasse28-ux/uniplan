@@ -11,47 +11,95 @@
 <style>
 :root {
   color-scheme: light;
-  --bg:#f5f6f8; --paper:#fff; --ink:#182333; --muted:#647084;
-  --line:#e1e5ec; --accent:#315dce; --soft:#edf2ff; --danger:#aa2735;
+  --bg:#f5f6f8;
+  --paper:#fff;
+  --ink:#182333;
+  --muted:#647084;
+  --line:#e1e5ec;
+  --accent:#315dce;
+  --soft:#edf2ff;
+  --danger:#aa2735;
 }
 * { box-sizing:border-box }
+[hidden] { display:none !important }
 body {
-  margin:0; background:var(--bg); color:var(--ink);
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
   font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 button,input,select,textarea { font:inherit }
 button,a,input,select,textarea { touch-action:manipulation }
 button {
-  cursor:pointer; min-height:44px; padding:9px 15px;
-  border:1px solid var(--line); border-radius:11px; background:white;
+  cursor:pointer;
+  min-height:44px;
+  padding:9px 15px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:white;
   color:var(--ink);
 }
-button.primary { background:var(--accent); color:white; border-color:var(--accent) }
+button.primary {
+  background:var(--accent);
+  color:white;
+  border-color:var(--accent);
+}
 button.danger { color:var(--danger) }
 button:disabled { opacity:.5; cursor:wait }
 :focus-visible { outline:3px solid #8baaff; outline-offset:3px }
 header {
-  position:sticky; top:0; z-index:2; background:var(--paper);
+  position:sticky;
+  top:0;
+  z-index:2;
+  background:var(--paper);
   border-bottom:1px solid var(--line);
   padding:16px max(20px,env(safe-area-inset-left));
 }
-.bar,.row { display:flex; gap:12px; align-items:center; flex-wrap:wrap }
-.bar { max-width:1180px; margin:auto; justify-content:space-between }
+.bar,.row {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.bar {
+  max-width:1180px;
+  margin:auto;
+  justify-content:space-between;
+}
 .brand { font-weight:750; font-size:23px }
-nav { display:flex; gap:6px; flex-wrap:wrap; margin-top:14px }
+nav {
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
 nav button { background:transparent; border-color:transparent }
-nav button[aria-current="page"] { background:var(--soft); color:var(--accent) }
-main { max-width:1180px; margin:auto; padding:28px 20px 70px }
+nav button[aria-current="page"] {
+  background:var(--soft);
+  color:var(--accent);
+}
+main {
+  max-width:1180px;
+  margin:auto;
+  padding:28px 20px 70px;
+}
 h1 { margin:0 0 5px; font-size:29px }
 h2 { font-size:19px; margin:0 0 12px }
 h3 { font-size:16px; margin:0 0 5px }
 p { margin:7px 0 15px }
 small,.muted { color:var(--muted) }
 .card {
-  background:var(--paper); border:1px solid var(--line);
-  border-radius:16px; padding:20px; margin-bottom:16px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:16px;
 }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px }
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:16px;
+}
 .grid .card { margin:0 }
 .stats { margin:22px 0 }
 .stat strong { display:block; font-size:27px }
@@ -59,48 +107,117 @@ small,.muted { color:var(--muted) }
 .item:first-child { border-top:0 }
 .itemhead { display:flex; gap:12px; align-items:flex-start }
 .itemhead .body { flex:1; min-width:0 }
-.itemhead input[type=checkbox] { width:23px; height:23px; margin-top:4px; flex-shrink:0 }
+.itemhead input[type=checkbox] {
+  width:23px;
+  height:23px;
+  margin-top:4px;
+  flex-shrink:0;
+}
 .done h3 { text-decoration:line-through; color:var(--muted) }
-.tag { display:inline-block; padding:2px 8px; border-radius:6px;
-  background:var(--soft); font-size:12px; margin-right:5px }
+.tag {
+  display:inline-block;
+  padding:2px 8px;
+  border-radius:6px;
+  background:var(--soft);
+  font-size:12px;
+  margin-right:5px;
+}
 .late { color:var(--danger) }
-.note { white-space:pre-wrap; overflow-wrap:anywhere; margin-top:10px }
+.note {
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  margin-top:10px;
+}
 .sub { margin:8px 0 0 34px }
-.sub label { display:flex; gap:9px; align-items:center; padding:5px 0 }
+.sub label {
+  display:flex;
+  gap:9px;
+  align-items:center;
+  padding:5px 0;
+}
 .sub input { width:20px; height:20px }
-.actions { margin:10px 0 0 34px; display:flex; flex-wrap:wrap; gap:7px }
+.actions {
+  margin:10px 0 0 34px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
 .actions button { font-size:14px; padding:5px 10px }
-.week { display:grid; grid-template-columns:repeat(7,minmax(190px,1fr));
-  gap:12px; overflow-x:auto; padding-bottom:12px }
+.week {
+  display:grid;
+  grid-template-columns:repeat(7,minmax(190px,1fr));
+  gap:12px;
+  overflow-x:auto;
+  padding-bottom:12px;
+}
 .week .card { padding:14px }
 .week h2 { font-size:16px }
 .week .itemhead { flex-wrap:wrap }
 .week .actions,.week .sub { margin-left:0 }
 .empty { color:var(--muted); padding:14px 0 }
 progress { width:100%; height:10px; accent-color:var(--accent) }
-label.field { display:block; font-weight:600; margin:14px 0 5px }
+label.field {
+  display:block;
+  font-weight:600;
+  margin:14px 0 5px;
+}
 input:not([type=checkbox]),select,textarea {
-  width:100%; min-height:44px; border:1px solid #cdd4df;
-  background:white; color:var(--ink); border-radius:9px; padding:10px;
+  width:100%;
+  min-height:44px;
+  border:1px solid #cdd4df;
+  background:white;
+  color:var(--ink);
+  border-radius:9px;
+  padding:10px;
 }
 textarea { min-height:90px; resize:vertical }
-.twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px }
+.twocol {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
 dialog {
-  width:min(680px,calc(100% - 24px)); max-height:90dvh;
-  border:0; border-radius:18px; padding:24px;
-  box-shadow:0 20px 90px #18233335; overflow:auto;
+  width:min(680px,calc(100% - 24px));
+  max-height:90dvh;
+  border:0;
+  border-radius:18px;
+  padding:24px;
+  box-shadow:0 20px 90px #18233335;
+  overflow:auto;
 }
 dialog::backdrop { background:#18233365 }
-.dialogbar { display:flex; justify-content:space-between; align-items:center; gap:10px }
-.footer { display:flex; justify-content:flex-end; gap:10px; margin-top:24px }
+.dialogbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.footer {
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:24px;
+}
 #status {
-  position:fixed; bottom:16px; left:50%; transform:translateX(-50%);
-  z-index:5; max-width:calc(100% - 30px); border-radius:10px;
-  padding:12px 18px; background:#182333; color:white;
+  position:fixed;
+  bottom:16px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
+  max-width:calc(100% - 30px);
+  border-radius:10px;
+  padding:12px 18px;
+  background:#182333;
+  color:white;
 }
 #status:empty { display:none }
 .help { font-size:14px; color:var(--muted) }
-.attachments { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 }
+.attachments {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:10px 0;
+}
 @media(max-width:600px) {
   main { padding:20px 14px 70px }
   header { padding:14px }
@@ -110,11 +227,15 @@ dialog::backdrop { background:#18233365 }
 }
 </style>
 </head>
+
 <body>
 <header>
   <div class="bar">
-    <div class="brand">UniPlan <span class="muted" style="font-size:14px">Dein Studium im Blick</span></div>
-    <button class="primary" id="add">+ Neuer Eintrag</button>
+    <div class="brand">
+      UniPlan
+      <span class="muted" style="font-size:14px">Dein Studium im Blick</span>
+    </div>
+    <button class="primary" id="add" disabled>+ Neuer Eintrag</button>
   </div>
   <nav class="bar" style="justify-content:flex-start" aria-label="Hauptnavigation">
     <button data-view="day">Tagesplan</button>
@@ -124,7 +245,11 @@ dialog::backdrop { background:#18233365 }
     <button data-view="settings">Daten & Backup</button>
   </nav>
 </header>
-<main id="main"><p>Deine Daten werden geladen …</p></main>
+
+<main id="main">
+  <p>Deine Daten werden geladen …</p>
+</main>
+
 <div id="status" role="status" aria-live="polite"></div>
 
 <dialog id="editor" aria-labelledby="editorTitle">
@@ -133,7 +258,9 @@ dialog::backdrop { background:#18233365 }
     <h2 id="editorTitle">Neuer Eintrag</h2>
     <button type="button" data-close="editor" aria-label="Schließen">✕</button>
   </div>
+
   <input type="hidden" name="id">
+
   <div class="twocol">
     <div>
       <label class="field" for="subject">Fach</label>
@@ -152,8 +279,10 @@ dialog::backdrop { background:#18233365 }
       </select>
     </div>
   </div>
+
   <label class="field" for="title">Titel</label>
   <input id="title" name="title" required maxlength="240">
+
   <div class="twocol">
     <div>
       <label class="field" for="date">Geplanter Tag / Termin</label>
@@ -166,24 +295,34 @@ dialog::backdrop { background:#18233365 }
       <div class="help">Optional, unabhängig vom geplanten Arbeitstag.</div>
     </div>
   </div>
+
   <div id="studyFields" class="twocol" hidden>
     <div>
       <label class="field" for="minutes">Geplante Lernzeit in Minuten</label>
-      <input id="minutes" name="minutes" type="number" min="0" max="1440" step="1" value="60">
+      <input id="minutes" name="minutes" type="number"
+        min="0" max="1440" step="1" value="60">
     </div>
     <div>
       <label class="field" for="actual">Tatsächlich gelernt: Minuten</label>
-      <input id="actual" name="actual" type="number" min="0" max="1440" step="1" value="0">
+      <input id="actual" name="actual" type="number"
+        min="0" max="1440" step="1" value="0">
     </div>
   </div>
+
   <label class="field" for="notes">Notizen</label>
   <textarea id="notes" name="notes" maxlength="50000"></textarea>
+
   <label class="field" for="subtasks">Unteraufgaben</label>
-  <textarea id="subtasks" name="subtasks" placeholder="Eine Unteraufgabe pro Zeile"></textarea>
+  <textarea id="subtasks" name="subtasks"
+    placeholder="Eine Unteraufgabe pro Zeile"></textarea>
+
   <label class="field" for="files">Dateianhänge</label>
   <input id="files" name="files" type="file" multiple>
-  <div class="help">Bis zu 10 MB je Datei. Anhänge werden auf diesem Gerät gespeichert.</div>
+  <div class="help">
+    Bis zu 10 MB je Datei. Anhänge werden auf diesem Gerät gespeichert.
+  </div>
   <div id="existingFiles" class="attachments"></div>
+
   <div class="footer">
     <button type="button" data-close="editor">Abbrechen</button>
     <button class="primary" id="saveEntry" type="submit">Speichern</button>
@@ -197,14 +336,19 @@ dialog::backdrop { background:#18233365 }
     <h2 id="goalTitle">Fachziele</h2>
     <button type="button" data-close="goalEditor" aria-label="Schließen">✕</button>
   </div>
+
   <input name="subjectId" type="hidden">
+
   <label class="field" for="grade">Zielnote</label>
   <input id="grade" name="grade" type="number" min="1" max="6" step="0.1">
   <div class="help">Schweizer Notenskala: 6 ist die beste Note.</div>
+
   <label class="field" for="hours">Lernziel pro Woche in Stunden</label>
   <input id="hours" name="hours" type="number" min="0" max="168" step="0.25">
+
   <label class="field" for="goalNotes">Notizen zu deinen Zielen</label>
   <textarea id="goalNotes" name="notes" maxlength="50000"></textarea>
+
   <div class="footer">
     <button type="button" data-close="goalEditor">Abbrechen</button>
     <button class="primary" type="submit">Speichern</button>
@@ -216,512 +360,1166 @@ dialog::backdrop { background:#18233365 }
 "use strict";
 
 const $ = id => document.getElementById(id);
-const esc = value => String(value ?? "").replace(/[&<>"']/g, c =>
-  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+const esc = value => String(value ?? "").replace(/[&<>"']/g, character => ({
+  "&":"&amp;",
+  "<":"&lt;",
+  ">":"&gt;",
+  '"':"&quot;",
+  "'":"&#39;"
+}[character]));
+
 const uid = () => crypto.randomUUID();
+
+/* Die Reihenfolge und IDs der bisherigen Fächer bleiben erhalten. */
 const names = [
   "BWL 3",
   "A primer in Entrepreneurship",
   "Wissenschaftliches Arbeiten",
   "Personal Branding & Life Design",
-  "Einführung in die empirische Wirtschaftsforschung"
+  "Einführung in die empirische Wirtschaftsforschung",
+  "Mikroökonomik 1",
+  "Mikroökonomik 2"
 ];
-const kinds = {
-  task:"Aufgabe", milestone:"Meilenstein", weekly:"Wochenziel",
-  study:"Lerneinheit", exam:"Prüfung", deadline:"Deadline", event:"Termin"
-};
-const iso = d => [
-  d.getFullYear(), String(d.getMonth()+1).padStart(2,"0"),
-  String(d.getDate()).padStart(2,"0")
-].join("-");
-const today = () => iso(new Date());
-const parseDate = s => new Date(s + "T12:00:00");
-const shift = (s,n) => { const d=parseDate(s); d.setDate(d.getDate()+n); return iso(d); };
-const monday = s => { const d=parseDate(s); return shift(s,-((d.getDay()+6)%7)); };
-const fmt = s => s ? parseDate(s).toLocaleDateString("de-CH",{
-  day:"2-digit",month:"2-digit",year:"numeric"
-}) : "";
-const hours = n => (n/60).toLocaleString("de-CH",{maximumFractionDigits:2})+" h";
 
-let db, state, view="day", selected=today(), filter="", showDone=false;
-let removedFiles=new Set(), queue=Promise.resolve(), toastTimer;
+const kinds = {
+  task:"Aufgabe",
+  milestone:"Meilenstein",
+  weekly:"Wochenziel",
+  study:"Lerneinheit",
+  exam:"Prüfung",
+  deadline:"Deadline",
+  event:"Termin"
+};
+
+const iso = date => [
+  date.getFullYear(),
+  String(date.getMonth()+1).padStart(2,"0"),
+  String(date.getDate()).padStart(2,"0")
+].join("-");
+
+const today = () => iso(new Date());
+const parseDate = value => new Date(value+"T12:00:00");
+
+const shift = (value,days) => {
+  const date = parseDate(value);
+  date.setDate(date.getDate()+days);
+  return iso(date);
+};
+
+const monday = value => {
+  const date = parseDate(value);
+  return shift(value,-((date.getDay()+6)%7));
+};
+
+const fmt = value => value
+  ? parseDate(value).toLocaleDateString("de-CH",{
+      day:"2-digit",
+      month:"2-digit",
+      year:"numeric"
+    })
+  : "";
+
+const hours = minutes =>
+  (minutes/60).toLocaleString("de-CH",{maximumFractionDigits:2})+" h";
+
+let db;
+let state;
+let view = "day";
+let selected = today();
+let filter = "";
+let showDone = false;
+let removedFiles = new Set();
+let queue = Promise.resolve();
+let toastTimer;
+
 const blank = () => ({
   version:1,
-  subjects:names.map((name,i)=>({id:"s"+i,name,grade:"",hours:"",notes:""})),
+  subjects:names.map((name,index) => ({
+    id:"s"+index,
+    name,
+    grade:"",
+    hours:"",
+    notes:""
+  })),
   entries:[]
 });
+
 function toast(message) {
-  $("status").textContent=message;
+  $("status").textContent = message;
   clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>$("status").textContent="",6500);
+  toastTimer = setTimeout(() => {
+    $("status").textContent = "";
+  },6500);
 }
+
 function openDB() {
-  return new Promise((resolve,reject)=>{
-    const request=indexedDB.open("uniplan",1);
-    request.onupgradeneeded=()=>request.result.createObjectStore("data");
-    request.onsuccess=()=>resolve(request.result);
-    request.onerror=()=>reject(request.error);
+  return new Promise((resolve,reject) => {
+    const request = indexedDB.open("uniplan",1);
+
+    request.onupgradeneeded = () => {
+      request.result.createObjectStore("data");
+    };
+
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
   });
 }
+
 function readDB() {
-  return new Promise((resolve,reject)=>{
-    const tx=db.transaction("data","readonly");
-    const r=tx.objectStore("data").get("state");
-    r.onsuccess=()=>resolve(r.result);
-    r.onerror=()=>reject(r.error);
+  return new Promise((resolve,reject) => {
+    const transaction = db.transaction("data","readonly");
+    const request = transaction.objectStore("data").get("state");
+
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
   });
 }
+
 function writeDB(value) {
-  return new Promise((resolve,reject)=>{
-    const tx=db.transaction("data","readwrite");
-    tx.objectStore("data").put(value,"state");
-    tx.oncomplete=()=>resolve();
-    tx.onerror=()=>reject(tx.error);
-    tx.onabort=()=>reject(tx.error || new Error("Speicherung abgebrochen"));
+  return new Promise((resolve,reject) => {
+    const transaction = db.transaction("data","readwrite");
+    transaction.objectStore("data").put(value,"state");
+
+    transaction.oncomplete = () => resolve();
+    transaction.onerror = () => reject(transaction.error);
+    transaction.onabort = () => reject(
+      transaction.error || new Error("Speicherung abgebrochen.")
+    );
   });
 }
+
 function mutate(change) {
-  const job=queue.then(async()=>{
-    const next=structuredClone(state);
+  const job = queue.then(async () => {
+    const next = structuredClone(state);
     await change(next);
     await writeDB(next);
-    state=next;
+    state = next;
     render();
   });
-  queue=job.catch(()=>{});
+
+  queue = job.catch(() => {});
   return job;
 }
+
 function report(error) {
   console.error(error);
-  toast("Nicht gespeichert: "+(error.message || "Speicher nicht verfügbar."));
+  toast("Vorgang fehlgeschlagen: "+
+    (error.message || "Speicher nicht verfügbar."));
 }
-const subjectName = id => state.subjects.find(s=>s.id===id)?.name || "Fach";
-const isLate = e => !e.done && (e.due || (["exam","deadline","event"].includes(e.kind) ? e.date : "")) < today()
-  && Boolean(e.due || (["exam","deadline","event"].includes(e.kind) ? e.date : ""));
-const inWeek = (date,start) => Boolean(date && date>=start && date<=shift(start,6));
-const relevantDay = (e,date) => e.date===date || e.due===date;
-const sortEntries = entries => [...entries].sort((a,b)=>
+
+const subjectName = id =>
+  state.subjects.find(subject => subject.id===id)?.name || "Fach";
+
+const isLate = entry => {
+  const deadline = entry.due ||
+    (["exam","deadline","event"].includes(entry.kind) ? entry.date : "");
+
+  return !entry.done && Boolean(deadline) && deadline<today();
+};
+
+const inWeek = (date,start) =>
+  Boolean(date && date>=start && date<=shift(start,6));
+
+const relevantDay = (entry,date) =>
+  entry.date===date || entry.due===date;
+
+const sortEntries = entries => [...entries].sort((a,b) =>
   Number(a.done)-Number(b.done) ||
   (a.due||a.date||"9999").localeCompare(b.due||b.date||"9999") ||
-  a.title.localeCompare(b.title));
+  a.title.localeCompare(b.title)
+);
 
-function item(e) {
-  return `<article class="item ${e.done?"done":""}">
-    <div class="itemhead">
-      <input type="checkbox" data-toggle="${esc(e.id)}" ${e.done?"checked":""}
-        aria-label="${esc(e.title)} als erledigt markieren">
-      <div class="body">
-        <h3>${esc(e.title)}</h3>
-        <small>${esc(subjectName(e.subject))}</small>
-        <div><span class="tag">${kinds[e.kind]}</span>
-          ${e.date?`<small>Geplant: ${fmt(e.date)}</small>`:""}
-          ${e.due?`<small class="${isLate(e)?"late":""}"> · Frist: ${fmt(e.due)}</small>`:""}
-          ${isLate(e)?'<span class="late"> · Überfällig</span>':""}
+function item(entry) {
+  return `
+    <article class="item ${entry.done?"done":""}">
+      <div class="itemhead">
+        <input
+          type="checkbox"
+          data-toggle="${esc(entry.id)}"
+          ${entry.done?"checked":""}
+          aria-label="${esc(entry.title)} als erledigt markieren">
+        <div class="body">
+          <h3>${esc(entry.title)}</h3>
+          <small>${esc(subjectName(entry.subject))}</small>
+          <div>
+            <span class="tag">${kinds[entry.kind]}</span>
+            ${entry.date
+              ? `<small>Geplant: ${fmt(entry.date)}</small>`
+              : ""}
+            ${entry.due
+              ? `<small class="${isLate(entry)?"late":""}">
+                  · Frist: ${fmt(entry.due)}
+                </small>`
+              : ""}
+            ${isLate(entry)
+              ? '<span class="late"> · Überfällig</span>'
+              : ""}
+          </div>
+          ${entry.kind==="study"
+            ? `<small>
+                ${hours(entry.minutes)} geplant ·
+                ${hours(entry.actual)} gelernt
+              </small>`
+            : ""}
+          ${entry.notes
+            ? `<details>
+                <summary>Notizen</summary>
+                <div class="note">${esc(entry.notes)}</div>
+              </details>`
+            : ""}
         </div>
-        ${e.kind==="study"?`<small>${hours(e.minutes)} geplant · ${hours(e.actual)} gelernt</small>`:""}
-        ${e.notes?`<details><summary>Notizen</summary><div class="note">${esc(e.notes)}</div></details>`:""}
       </div>
-    </div>
-    ${e.subtasks.length?`<div class="sub">${e.subtasks.map(s=>`
-      <label><input type="checkbox" data-sub="${esc(e.id)}" data-subid="${esc(s.id)}"
-        ${s.done?"checked":""}><span>${esc(s.text)}</span></label>`).join("")}</div>`:""}
-    <div class="actions">
-      <button data-edit="${esc(e.id)}">Bearbeiten</button>
-      ${e.files.map(f=>`<button data-file="${esc(e.id)}" data-fileid="${esc(f.id)}">↓ ${esc(f.name)}</button>`).join("")}
-      <button class="danger" data-delete="${esc(e.id)}">Löschen</button>
-    </div>
-  </article>`;
+
+      ${entry.subtasks.length
+        ? `<div class="sub">
+            ${entry.subtasks.map(subtask => `
+              <label>
+                <input
+                  type="checkbox"
+                  data-sub="${esc(entry.id)}"
+                  data-subid="${esc(subtask.id)}"
+                  ${subtask.done?"checked":""}>
+                <span>${esc(subtask.text)}</span>
+              </label>
+            `).join("")}
+          </div>`
+        : ""}
+
+      <div class="actions">
+        <button data-edit="${esc(entry.id)}">Bearbeiten</button>
+        ${entry.files.map(file => `
+          <button
+            data-file="${esc(entry.id)}"
+            data-fileid="${esc(file.id)}">
+            ↓ ${esc(file.name)}
+          </button>
+        `).join("")}
+        <button class="danger" data-delete="${esc(entry.id)}">
+          Löschen
+        </button>
+      </div>
+    </article>
+  `;
 }
+
 function list(entries) {
-  return entries.length ? sortEntries(entries).map(item).join("") :
-    '<div class="empty">Keine Einträge.</div>';
+  return entries.length
+    ? sortEntries(entries).map(item).join("")
+    : '<div class="empty">Keine Einträge.</div>';
 }
+
 function dateControls(weekly=false) {
-  return `<div class="row" style="margin:18px 0">
-    <button data-shift="${weekly?-7:-1}" aria-label="Zurück">←</button>
-    <label for="selectedDate" class="muted">${weekly?"Woche auswählen":"Tag auswählen"}</label>
-    <input id="selectedDate" type="date" value="${selected}" style="width:180px">
-    <button data-shift="${weekly?7:1}" aria-label="Weiter">→</button>
-    <button id="today">Heute</button>
-  </div>`;
+  return `
+    <div class="row" style="margin:18px 0">
+      <button data-shift="${weekly?-7:-1}" aria-label="Zurück">←</button>
+      <label for="selectedDate" class="muted">
+        ${weekly?"Woche auswählen":"Tag auswählen"}
+      </label>
+      <input
+        id="selectedDate"
+        type="date"
+        value="${selected}"
+        style="width:180px">
+      <button data-shift="${weekly?7:1}" aria-label="Weiter">→</button>
+      <button id="today">Heute</button>
+    </div>
+  `;
 }
+
 function render() {
   if(!state) return;
-  document.querySelectorAll("[data-view]").forEach(b=>{
-    if(b.dataset.view===view) b.setAttribute("aria-current","page");
-    else b.removeAttribute("aria-current");
+
+  document.querySelectorAll("[data-view]").forEach(button => {
+    if(button.dataset.view===view) {
+      button.setAttribute("aria-current","page");
+    } else {
+      button.removeAttribute("aria-current");
+    }
   });
-  const start=monday(selected);
+
+  const start = monday(selected);
+
   if(view==="day") {
-    const entries=state.entries.filter(e=>relevantDay(e,selected) && e.kind!=="weekly");
-    const weekly=state.entries.filter(e=>e.kind==="weekly" && inWeek(e.date,start));
-    const overdue=state.entries.filter(e=>isLate(e) && !relevantDay(e,selected));
-    const actual=state.entries.filter(e=>e.kind==="study" && e.date===selected)
-      .reduce((n,e)=>n+e.actual,0);
-    $("main").innerHTML=`<h1>Dein Tagesplan</h1>
+    const entries = state.entries.filter(entry =>
+      relevantDay(entry,selected) && entry.kind!=="weekly"
+    );
+
+    const weekly = state.entries.filter(entry =>
+      entry.kind==="weekly" && inWeek(entry.date,start)
+    );
+
+    const overdue = state.entries.filter(entry =>
+      isLate(entry) && !relevantDay(entry,selected)
+    );
+
+    const actual = state.entries
+      .filter(entry => entry.kind==="study" && entry.date===selected)
+      .reduce((sum,entry) => sum+entry.actual,0);
+
+    $("main").innerHTML = `
+      <h1>Dein Tagesplan</h1>
       <p class="muted">Ein klarer Überblick für deinen Uni-Tag.</p>
       ${dateControls()}
       <div class="grid stats">
-        <div class="card stat"><strong>${entries.filter(e=>!e.done).length}</strong>Offene Einträge am gewählten Tag</div>
-        <div class="card stat"><strong>${hours(actual)}</strong>Erfasste Lernzeit am gewählten Tag</div>
-        <div class="card stat"><strong>${overdue.length+entries.filter(isLate).length}</strong>Überfällige Einträge insgesamt</div>
+        <div class="card stat">
+          <strong>${entries.filter(entry => !entry.done).length}</strong>
+          Offene Einträge am gewählten Tag
+        </div>
+        <div class="card stat">
+          <strong>${hours(actual)}</strong>
+          Erfasste Lernzeit am gewählten Tag
+        </div>
+        <div class="card stat">
+          <strong>
+            ${state.entries.filter(isLate).length}
+          </strong>
+          Überfällige Einträge insgesamt
+        </div>
       </div>
-      <section class="card"><h2>${fmt(selected)}</h2>${list(entries)}</section>
-      <section class="card"><h2>Wochenziele dieser Woche</h2>${list(weekly)}</section>
-      ${overdue.length?`<section class="card"><h2>Weitere überfällige Einträge</h2>${list(overdue)}</section>`:""}`;
+      <section class="card">
+        <h2>${fmt(selected)}</h2>
+        ${list(entries)}
+      </section>
+      <section class="card">
+        <h2>Wochenziele dieser Woche</h2>
+        ${list(weekly)}
+      </section>
+      ${overdue.length
+        ? `<section class="card">
+            <h2>Weitere überfällige Einträge</h2>
+            ${list(overdue)}
+          </section>`
+        : ""}
+    `;
   }
+
   if(view==="week") {
-    const end=shift(start,6);
-    const learned=state.entries.filter(e=>e.kind==="study" && inWeek(e.date,start))
-      .reduce((n,e)=>n+e.actual,0);
-    const planned=state.entries.filter(e=>e.kind==="study" && inWeek(e.date,start))
-      .reduce((n,e)=>n+e.minutes,0);
-    $("main").innerHTML=`<h1>Dein Wochenplan</h1>${dateControls(true)}
-      <p>${fmt(start)} – ${fmt(end)} · ${hours(planned)} geplant · ${hours(learned)} gelernt</p>
-      <section class="card"><h2>Wochenziele</h2>
-        ${list(state.entries.filter(e=>e.kind==="weekly" && inWeek(e.date,start)))}</section>
-      <div class="week">${Array.from({length:7},(_,i)=>{
-        const d=shift(start,i);
-        return `<section class="card"><h2>${parseDate(d).toLocaleDateString("de-CH",{
-          weekday:"short",day:"numeric",month:"numeric"
-        })}</h2>${list(state.entries.filter(e=>e.kind!=="weekly" && relevantDay(e,d)))}</section>`;
-      }).join("")}</div>`;
+    const end = shift(start,6);
+
+    const studyEntries = state.entries.filter(entry =>
+      entry.kind==="study" && inWeek(entry.date,start)
+    );
+
+    const learned = studyEntries.reduce(
+      (sum,entry) => sum+entry.actual,0
+    );
+
+    const planned = studyEntries.reduce(
+      (sum,entry) => sum+entry.minutes,0
+    );
+
+    $("main").innerHTML = `
+      <h1>Dein Wochenplan</h1>
+      ${dateControls(true)}
+      <p>
+        ${fmt(start)} – ${fmt(end)} ·
+        ${hours(planned)} geplant · ${hours(learned)} gelernt
+      </p>
+      <section class="card">
+        <h2>Wochenziele</h2>
+        ${list(state.entries.filter(entry =>
+          entry.kind==="weekly" && inWeek(entry.date,start)
+        ))}
+      </section>
+      <div class="week">
+        ${Array.from({length:7},(_,index) => {
+          const day = shift(start,index);
+
+          return `
+            <section class="card">
+              <h2>
+                ${parseDate(day).toLocaleDateString("de-CH",{
+                  weekday:"short",
+                  day:"numeric",
+                  month:"numeric"
+                })}
+              </h2>
+              ${list(state.entries.filter(entry =>
+                entry.kind!=="weekly" && relevantDay(entry,day)
+              ))}
+            </section>
+          `;
+        }).join("")}
+      </div>
+    `;
   }
+
   if(view==="subjects") {
-    $("main").innerHTML=`<h1>Fächer & Ziele</h1>
-      <p class="muted">Zielnoten, Lernfortschritt und Meilensteine. Lernzeit bezieht sich auf die aktuelle Woche.</p>
-      <div class="grid">${state.subjects.map(s=>{
-        const entries=state.entries.filter(e=>e.subject===s.id);
-        const milestones=entries.filter(e=>e.kind==="milestone");
-        const complete=milestones.filter(e=>e.done).length;
-        const actual=entries.filter(e=>e.kind==="study" && inWeek(e.date,monday(today())))
-          .reduce((n,e)=>n+e.actual,0);
-        return `<section class="card">
-          <h2>${esc(s.name)}</h2>
-          <p>Zielnote: <strong>${s.grade===""?"Noch offen":esc(s.grade)}</strong></p>
-          <p>Lernzeit diese Woche: <strong>${hours(actual)}</strong>
-            ${s.hours!==""?` / ${esc(s.hours)} h`:""}</p>
-          ${Number(s.hours)>0?`<progress value="${actual}" max="${Number(s.hours)*60}"
-            aria-label="Wöchentliches Lernziel"></progress>`:""}
-          <p>${entries.filter(e=>!e.done && e.kind==="task").length} offene Aufgaben</p>
-          <p>${complete} / ${milestones.length} Meilensteine erreicht</p>
-          ${milestones.length?`<progress value="${complete}" max="${milestones.length}"
-            aria-label="Erreichte Meilensteine"></progress>`:""}
-          ${s.notes?`<p class="note">${esc(s.notes)}</p>`:""}
-          <div class="row">
-            <button data-goal="${esc(s.id)}">Ziele bearbeiten</button>
-            <button data-subjectview="${esc(s.id)}">Einträge ansehen</button>
-          </div>
-        </section>`;
-      }).join("")}</div>`;
+    $("main").innerHTML = `
+      <h1>Fächer & Ziele</h1>
+      <p class="muted">
+        Zielnoten, Lernfortschritt und Meilensteine.
+        Lernzeit bezieht sich auf die aktuelle Woche.
+      </p>
+      <div class="grid">
+        ${state.subjects.map(subject => {
+          const entries = state.entries.filter(entry =>
+            entry.subject===subject.id
+          );
+
+          const milestones = entries.filter(entry =>
+            entry.kind==="milestone"
+          );
+
+          const complete = milestones.filter(entry => entry.done).length;
+
+          const actual = entries
+            .filter(entry =>
+              entry.kind==="study" &&
+              inWeek(entry.date,monday(today()))
+            )
+            .reduce((sum,entry) => sum+entry.actual,0);
+
+          return `
+            <section class="card">
+              <h2>${esc(subject.name)}</h2>
+              <p>
+                Zielnote:
+                <strong>
+                  ${subject.grade===""?"Noch offen":esc(subject.grade)}
+                </strong>
+              </p>
+              <p>
+                Lernzeit diese Woche:
+                <strong>${hours(actual)}</strong>
+                ${subject.hours!==""?` / ${esc(subject.hours)} h`:""}
+              </p>
+              ${Number(subject.hours)>0
+                ? `<progress
+                    value="${actual}"
+                    max="${Number(subject.hours)*60}"
+                    aria-label="Wöchentliches Lernziel">
+                  </progress>`
+                : ""}
+              <p>
+                ${entries.filter(entry =>
+                  !entry.done && entry.kind==="task"
+                ).length}
+                offene Aufgaben
+              </p>
+              <p>
+                ${complete} / ${milestones.length}
+                Meilensteine erreicht
+              </p>
+              ${milestones.length
+                ? `<progress
+                    value="${complete}"
+                    max="${milestones.length}"
+                    aria-label="Erreichte Meilensteine">
+                  </progress>`
+                : ""}
+              ${subject.notes
+                ? `<p class="note">${esc(subject.notes)}</p>`
+                : ""}
+              <div class="row">
+                <button data-goal="${esc(subject.id)}">
+                  Ziele bearbeiten
+                </button>
+                <button data-subjectview="${esc(subject.id)}">
+                  Einträge ansehen
+                </button>
+              </div>
+            </section>
+          `;
+        }).join("")}
+      </div>
+    `;
   }
+
   if(view==="all") {
-    const entries=state.entries.filter(e=>(!filter||e.subject===filter)&&(showDone||!e.done));
-    $("main").innerHTML=`<h1>Alle Einträge</h1>
+    const entries = state.entries.filter(entry =>
+      (!filter || entry.subject===filter) &&
+      (showDone || !entry.done)
+    );
+
+    $("main").innerHTML = `
+      <h1>Alle Einträge</h1>
       <div class="row" style="margin:20px 0">
         <label for="filter">Fach</label>
         <select id="filter" style="max-width:380px">
           <option value="">Alle Fächer</option>
-          ${state.subjects.map(s=>`<option value="${esc(s.id)}" ${s.id===filter?"selected":""}>${esc(s.name)}</option>`).join("")}
+          ${state.subjects.map(subject => `
+            <option
+              value="${esc(subject.id)}"
+              ${subject.id===filter?"selected":""}>
+              ${esc(subject.name)}
+            </option>
+          `).join("")}
         </select>
-        <label><input id="showDone" type="checkbox" ${showDone?"checked":""}> Erledigte anzeigen</label>
+        <label>
+          <input id="showDone" type="checkbox" ${showDone?"checked":""}>
+          Erledigte anzeigen
+        </label>
       </div>
-      <section class="card">${list(entries)}</section>`;
+      <section class="card">${list(entries)}</section>
+    `;
   }
+
   if(view==="settings") {
-    $("main").innerHTML=`<h1>Daten & Backup</h1>
-      <section class="card"><h2>Speicherung auf diesem iPad</h2>
-        <p>Deine Einträge und Anhänge liegen im Browserspeicher dieser Web-App.
-        Sie werden nicht an einen Server übertragen.</p>
-        <p>Das Löschen von Website-Daten kann auch deine UniPlan-Daten entfernen.
-        Erstelle daher regelmäßig ein Backup und speichere es in der Dateien-App.</p>
-        <p>Safari und die Home-Bildschirm-App können getrennten Speicher verwenden.
-        Nutze nach der Einrichtung möglichst immer die Home-Bildschirm-App.
-        Mit einem Backup kannst du deine Daten übertragen.</p>
+    $("main").innerHTML = `
+      <h1>Daten & Backup</h1>
+
+      <section class="card">
+        <h2>Speicherung auf diesem iPad</h2>
+        <p>
+          Deine Einträge und Anhänge liegen im Browserspeicher dieser
+          Web-App. Sie werden nicht an einen Server übertragen.
+        </p>
+        <p>
+          Das Löschen von Website-Daten kann auch deine UniPlan-Daten
+          entfernen. Erstelle daher regelmäßig ein Backup und speichere
+          es in der Dateien-App.
+        </p>
+        <p>
+          Safari und die Home-Bildschirm-App können getrennten Speicher
+          verwenden. Nutze nach der Einrichtung möglichst immer die
+          Home-Bildschirm-App. Mit einem Backup kannst du deine Daten
+          übertragen.
+        </p>
       </section>
-      <section class="card"><h2>Backup mit allen Anhängen</h2>
-        <div class="row"><button id="export" class="primary">Backup herunterladen</button>
-          <button id="import">Backup wiederherstellen</button></div>
-        <input id="backupFile" type="file" accept=".json,application/json" hidden>
-        <p class="help">Beim Wiederherstellen werden die aktuellen Daten ersetzt.
-        Ein Backup enthält auch deine Notizen und Dateien; bewahre es entsprechend auf.</p>
+
+      <section class="card">
+        <h2>Backup mit allen Anhängen</h2>
+        <div class="row">
+          <button id="export" class="primary">
+            Backup herunterladen
+          </button>
+          <button id="import">Backup wiederherstellen</button>
+        </div>
+        <input
+          id="backupFile"
+          type="file"
+          accept=".json,application/json"
+          hidden>
+        <p class="help">
+          Beim Wiederherstellen werden die aktuellen Daten ersetzt.
+          Ein Backup enthält auch deine Notizen und Dateien;
+          bewahre es entsprechend auf.
+        </p>
       </section>
-      <section class="card"><h2>Bedienung</h2>
-        <p>Neue Aufgaben, Lernzeiten und Termine legst du über „Neuer Eintrag“ an.
-        Bei Lerneinheiten trägst du geplante und tatsächlich gelernte Minuten getrennt ein.</p>
-        <p>Apple Pencil: Die iPad-Handschrifterkennung kannst du in den Textfeldern verwenden,
-        sofern sie in den iPad-Einstellungen aktiviert ist.</p>
-        <p>Diese Version benötigt für das zuverlässige Öffnen eine Internetverbindung.
-        Benachrichtigungen und ChatGPT-Anbindung sind nicht enthalten.</p>
-      </section>`;
+
+      <section class="card">
+        <h2>Bedienung</h2>
+        <p>
+          Neue Aufgaben, Lernzeiten und Termine legst du über
+          „Neuer Eintrag“ an. Bei Lerneinheiten trägst du geplante und
+          tatsächlich gelernte Minuten getrennt ein.
+        </p>
+        <p>
+          Apple Pencil: Die iPad-Handschrifterkennung kannst du in den
+          Textfeldern verwenden, sofern sie in den iPad-Einstellungen
+          aktiviert ist.
+        </p>
+        <p>
+          Diese Version benötigt für das zuverlässige Öffnen eine
+          Internetverbindung. Benachrichtigungen und ChatGPT-Anbindung
+          sind nicht enthalten.
+        </p>
+        <p class="help">UniPlan · Version mit sieben Fächern</p>
+      </section>
+    `;
   }
 }
+
 function updateKind() {
-  const f=$("entryForm");
-  $("studyFields").hidden=f.elements.kind.value!=="study";
-  f.elements.date.required=["study","weekly","exam","deadline","event"].includes(f.elements.kind.value);
+  const form = $("entryForm");
+  const kind = form.elements.kind.value;
+
+  $("studyFields").hidden = kind!=="study";
+
+  form.elements.date.required =
+    ["study","weekly","exam","deadline","event"].includes(kind);
 }
-function drawExistingFiles(e) {
-  $("existingFiles").innerHTML=(e?.files||[]).filter(f=>!removedFiles.has(f.id))
-    .map(f=>`<button type="button" data-removefile="${esc(f.id)}">${esc(f.name)} · Entfernen</button>`).join("");
+
+function drawExistingFiles(entry) {
+  $("existingFiles").innerHTML = (entry?.files || [])
+    .filter(file => !removedFiles.has(file.id))
+    .map(file => `
+      <button type="button" data-removefile="${esc(file.id)}">
+        ${esc(file.name)} · Entfernen
+      </button>
+    `).join("");
 }
+
 function editEntry(id="") {
-  const e=state.entries.find(e=>e.id===id);
-  const f=$("entryForm");
-  f.reset();
-  removedFiles=new Set();
-  f.elements.subject.innerHTML=state.subjects.map(s=>
-    `<option value="${esc(s.id)}">${esc(s.name)}</option>`).join("");
-  f.elements.id.value=e?.id||"";
-  f.elements.subject.value=e?.subject || filter || state.subjects[0].id;
-  f.elements.kind.value=e?.kind||"task";
-  f.elements.title.value=e?.title||"";
-  f.elements.date.value=e?.date||(!e?selected:"");
-  f.elements.due.value=e?.due||"";
-  f.elements.minutes.value=e?.minutes??60;
-  f.elements.actual.value=e?.actual??0;
-  f.elements.notes.value=e?.notes||"";
-  f.elements.subtasks.value=e?.subtasks.map(s=>s.text).join("\n")||"";
-  $("editorTitle").textContent=e?"Eintrag bearbeiten":"Neuer Eintrag";
-  drawExistingFiles(e);
+  if(!state) return;
+
+  const entry = state.entries.find(entry => entry.id===id);
+  const form = $("entryForm");
+
+  form.reset();
+  removedFiles = new Set();
+
+  form.elements.subject.innerHTML = state.subjects.map(subject => `
+    <option value="${esc(subject.id)}">${esc(subject.name)}</option>
+  `).join("");
+
+  form.elements.id.value = entry?.id || "";
+  form.elements.subject.value =
+    entry?.subject || filter || state.subjects[0].id;
+  form.elements.kind.value = entry?.kind || "task";
+  form.elements.title.value = entry?.title || "";
+  form.elements.date.value = entry ? entry.date : selected;
+  form.elements.due.value = entry?.due || "";
+  form.elements.minutes.value = entry?.minutes ?? 60;
+  form.elements.actual.value = entry?.actual ?? 0;
+  form.elements.notes.value = entry?.notes || "";
+  form.elements.subtasks.value =
+    entry?.subtasks.map(subtask => subtask.text).join("\n") || "";
+
+  $("editorTitle").textContent =
+    entry ? "Eintrag bearbeiten" : "Neuer Eintrag";
+
+  drawExistingFiles(entry);
   updateKind();
   $("editor").showModal();
 }
+
 function fileData(file) {
-  return new Promise((resolve,reject)=>{
-    const reader=new FileReader();
-    reader.onload=()=>resolve(reader.result);
-    reader.onerror=()=>reject(new Error("Datei konnte nicht gelesen werden."));
+  return new Promise((resolve,reject) => {
+    const reader = new FileReader();
+
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(
+      new Error("Datei konnte nicht gelesen werden.")
+    );
+
     reader.readAsDataURL(file);
   });
 }
+
 function download(blob,name) {
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement("a");
-  a.href=url; a.download=name;
-  document.body.append(a); a.click(); a.remove();
-  setTimeout(()=>URL.revokeObjectURL(url),60000);
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = name;
+
+  document.body.append(link);
+  link.click();
+  link.remove();
+
+  setTimeout(() => URL.revokeObjectURL(url),60000);
 }
+
 async function downloadFile(entryId,fileId) {
-  const file=state.entries.find(e=>e.id===entryId)?.files.find(f=>f.id===fileId);
+  const file = state.entries
+    .find(entry => entry.id===entryId)
+    ?.files.find(file => file.id===fileId);
+
   if(!file) return;
-  const encoded=file.data.slice(file.data.indexOf(",")+1);
-  const raw=atob(encoded);
-  const bytes=new Uint8Array(raw.length);
-  for(let i=0;i<raw.length;i++) bytes[i]=raw.charCodeAt(i);
-  download(new Blob([bytes],{type:"application/octet-stream"}),file.name);
+
+  const encoded = file.data.slice(file.data.indexOf(",")+1);
+  const raw = atob(encoded);
+  const bytes = new Uint8Array(raw.length);
+
+  for(let index=0; index<raw.length; index++) {
+    bytes[index] = raw.charCodeAt(index);
+  }
+
+  download(
+    new Blob([bytes],{type:"application/octet-stream"}),
+    file.name
+  );
 }
-$("entryForm").addEventListener("submit",async event=>{
+
+$("entryForm").addEventListener("submit",async event => {
   event.preventDefault();
-  const f=event.currentTarget;
-  if(!f.reportValidity()) return;
-  const save=$("saveEntry");
-  save.disabled=true;
+
+  const form = event.currentTarget;
+  if(!form.reportValidity()) return;
+
+  const saveButton = $("saveEntry");
+  saveButton.disabled = true;
+
   try {
-    const old=state.entries.find(e=>e.id===f.elements.id.value);
-    const uploaded=[];
-    for(const file of f.elements.files.files) {
-      if(file.size>10*1024*1024) throw new Error(file.name+": maximal 10 MB je Datei.");
-      uploaded.push({id:uid(),name:file.name,size:file.size,data:await fileData(file)});
+    const old = state.entries.find(entry =>
+      entry.id===form.elements.id.value
+    );
+
+    const uploaded = [];
+
+    for(const file of form.elements.files.files) {
+      if(file.size>10*1024*1024) {
+        throw new Error(file.name+": maximal 10 MB je Datei.");
+      }
+
+      uploaded.push({
+        id:uid(),
+        name:file.name,
+        size:file.size,
+        data:await fileData(file)
+      });
     }
-    const remaining=[...(old?.subtasks||[])];
-    const subtasks=f.elements.subtasks.value.split("\n").map(t=>t.trim()).filter(Boolean).map(text=>{
-      const index=remaining.findIndex(s=>s.text===text);
-      return index>=0?remaining.splice(index,1)[0]:{id:uid(),text,done:false};
-    });
-    const entry={
-      id:old?.id||uid(), subject:f.elements.subject.value,
-      kind:f.elements.kind.value, title:f.elements.title.value.trim(),
-      date:f.elements.date.value, due:f.elements.due.value,
-      minutes:f.elements.kind.value==="study"?Number(f.elements.minutes.value):0,
-      actual:f.elements.kind.value==="study"?Number(f.elements.actual.value):0,
-      notes:f.elements.notes.value, subtasks, done:old?.done||false,
-      files:[...(old?.files||[]).filter(x=>!removedFiles.has(x.id)),...uploaded]
+
+    const remaining = [...(old?.subtasks || [])];
+
+    const subtasks = form.elements.subtasks.value
+      .split("\n")
+      .map(text => text.trim())
+      .filter(Boolean)
+      .map(text => {
+        const index = remaining.findIndex(subtask =>
+          subtask.text===text
+        );
+
+        return index>=0
+          ? remaining.splice(index,1)[0]
+          : {id:uid(),text,done:false};
+      });
+
+    const kind = form.elements.kind.value;
+
+    const entry = {
+      id:old?.id || uid(),
+      subject:form.elements.subject.value,
+      kind,
+      title:form.elements.title.value.trim(),
+      date:form.elements.date.value,
+      due:form.elements.due.value,
+      minutes:kind==="study" ? Number(form.elements.minutes.value) : 0,
+      actual:kind==="study" ? Number(form.elements.actual.value) : 0,
+      notes:form.elements.notes.value,
+      subtasks,
+      done:old?.done || false,
+      files:[
+        ...(old?.files || []).filter(file =>
+          !removedFiles.has(file.id)
+        ),
+        ...uploaded
+      ]
     };
-    if(!entry.title) throw new Error("Bitte einen Titel eingeben.");
-    await mutate(next=>{
-      const index=next.entries.findIndex(e=>e.id===entry.id);
-      if(index<0) next.entries.push(entry); else next.entries[index]=entry;
+
+    if(!entry.title) {
+      throw new Error("Bitte einen Titel eingeben.");
+    }
+
+    if(subtasks.length>1000) {
+      throw new Error("Maximal 1000 Unteraufgaben je Eintrag.");
+    }
+
+    if(entry.files.length>1000) {
+      throw new Error("Maximal 1000 Anhänge je Eintrag.");
+    }
+
+    await mutate(next => {
+      const index = next.entries.findIndex(existing =>
+        existing.id===entry.id
+      );
+
+      if(index<0) {
+        if(next.entries.length>=20000) {
+          throw new Error("Maximal 20000 Einträge.");
+        }
+        next.entries.push(entry);
+      } else {
+        next.entries[index] = entry;
+      }
     });
+
     $("editor").close();
     toast("Gespeichert.");
-  } catch(error) { report(error); }
-  finally { save.disabled=false; }
+  } catch(error) {
+    report(error);
+  } finally {
+    saveButton.disabled = false;
+  }
 });
+
 $("kind").addEventListener("change",updateKind);
-$("goalForm").addEventListener("submit",async event=>{
+
+$("goalForm").addEventListener("submit",async event => {
   event.preventDefault();
-  const f=event.currentTarget;
-  if(!f.reportValidity()) return;
-  const button=f.querySelector('button[type="submit"]');
-  button.disabled=true;
+
+  const form = event.currentTarget;
+  if(!form.reportValidity()) return;
+
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+
   try {
-    const id=f.elements.subjectId.value;
-    const goal={
-      grade:f.elements.grade.value===""?"":Number(f.elements.grade.value),
-      hours:f.elements.hours.value===""?"":Number(f.elements.hours.value),
-      notes:f.elements.notes.value
+    const id = form.elements.subjectId.value;
+
+    const goal = {
+      grade:form.elements.grade.value===""
+        ? ""
+        : Number(form.elements.grade.value),
+      hours:form.elements.hours.value===""
+        ? ""
+        : Number(form.elements.hours.value),
+      notes:form.elements.notes.value
     };
-    await mutate(next=>Object.assign(next.subjects.find(s=>s.id===id),goal));
-    $("goalEditor").close(); toast("Ziele gespeichert.");
-  } catch(error) { report(error); }
-  finally { button.disabled=false; }
+
+    await mutate(next => {
+      const subject = next.subjects.find(subject => subject.id===id);
+      if(!subject) throw new Error("Fach nicht gefunden.");
+      Object.assign(subject,goal);
+    });
+
+    $("goalEditor").close();
+    toast("Ziele gespeichert.");
+  } catch(error) {
+    report(error);
+  } finally {
+    button.disabled = false;
+  }
 });
+
 function validDate(value) {
-  return value==="" || typeof value==="string" &&
+  return value==="" || (
+    typeof value==="string" &&
     /^\d{4}-\d{2}-\d{2}$/.test(value) &&
-    !Number.isNaN(parseDate(value).getTime()) && iso(parseDate(value))===value;
+    !Number.isNaN(parseDate(value).getTime()) &&
+    iso(parseDate(value))===value
+  );
 }
+
 function validateBackup(data) {
-  const fail=()=>{throw new Error("Das Backup hat ein ungültiges Format.");};
-  const str=(v,max)=>typeof v==="string" && v.length<=max;
-  const number=(v,max)=>typeof v==="number" && Number.isFinite(v) && v>=0 && v<=max;
-  const ids=new Set();
-  const unique=id=>{
-    if(!str(id,100)||!id||ids.has(id)) fail();
+  const fail = () => {
+    throw new Error("Das Backup oder die gespeicherten Daten haben ein ungültiges Format.");
+  };
+
+  const str = (value,max) =>
+    typeof value==="string" && value.length<=max;
+
+  const number = (value,max) =>
+    typeof value==="number" &&
+    Number.isFinite(value) &&
+    value>=0 &&
+    value<=max;
+
+  const ids = new Set();
+
+  const unique = id => {
+    if(!str(id,100) || !id || ids.has(id)) fail();
     ids.add(id);
   };
-  if(!data || data.version!==1 || !Array.isArray(data.subjects) ||
-     data.subjects.length!==5 || !Array.isArray(data.entries) ||
-     data.entries.length>20000) fail();
-  const subjectIds=new Set();
-  const subjects=data.subjects.map((s,i)=>{
-    if(!s || s.id!=="s"+i || s.name!==names[i] ||
-       !(s.grade==="" || number(s.grade,6)&&s.grade>=1) ||
-       !(s.hours==="" || number(s.hours,168)) || !str(s.notes,50000)) fail();
-    subjectIds.add(s.id);
-    return {id:s.id,name:s.name,grade:s.grade,hours:s.hours,notes:s.notes};
-  });
-  const entries=data.entries.map(e=>{
-    if(!e) fail();
-    unique(e.id);
-    if(!subjectIds.has(e.subject) || !Object.hasOwn(kinds,e.kind) ||
-       !str(e.title,240) || !e.title.trim() || !str(e.notes,50000) ||
-       !validDate(e.date) || !validDate(e.due) ||
-       !number(e.minutes,1440) || !number(e.actual,1440) ||
-       typeof e.done!=="boolean" || !Array.isArray(e.subtasks) ||
-       e.subtasks.length>1000 || !Array.isArray(e.files) || e.files.length>1000 ||
-       ["study","weekly","exam","deadline","event"].includes(e.kind)&&!e.date) fail();
-    const subtasks=e.subtasks.map(s=>{
-      if(!s) fail();
-      unique(s.id);
-      if(!str(s.text,50000)||!s.text.trim()||typeof s.done!=="boolean") fail();
-      return {id:s.id,text:s.text,done:s.done};
-    });
-    const files=e.files.map(f=>{
-      if(!f) fail();
-      unique(f.id);
-      if(!str(f.name,1000)||!f.name||!number(f.size,10*1024*1024)||
-         !str(f.data,15*1024*1024)||
-         !/^data:[^,]*;base64,[A-Za-z0-9+/]*={0,2}$/.test(f.data)) fail();
-      try {
-        if(atob(f.data.slice(f.data.indexOf(",")+1)).length!==f.size) fail();
-      } catch { fail(); }
-      return {id:f.id,name:f.name,size:f.size,data:f.data};
-    });
+
+  if(
+    !data ||
+    data.version!==1 ||
+    !Array.isArray(data.subjects) ||
+    data.subjects.length<5 ||
+    data.subjects.length>names.length ||
+    !Array.isArray(data.entries) ||
+    data.entries.length>20000
+  ) {
+    fail();
+  }
+
+  const subjectIds = new Set();
+
+  const subjects = data.subjects.map((subject,index) => {
+    if(
+      !subject ||
+      subject.id!=="s"+index ||
+      subject.name!==names[index] ||
+      !(subject.grade==="" || (
+        number(subject.grade,6) && subject.grade>=1
+      )) ||
+      !(subject.hours==="" || number(subject.hours,168)) ||
+      !str(subject.notes,50000)
+    ) {
+      fail();
+    }
+
+    subjectIds.add(subject.id);
+
     return {
-      id:e.id,subject:e.subject,kind:e.kind,title:e.title,date:e.date,due:e.due,
-      minutes:e.minutes,actual:e.actual,notes:e.notes,done:e.done,subtasks,files
+      id:subject.id,
+      name:subject.name,
+      grade:subject.grade,
+      hours:subject.hours,
+      notes:subject.notes
     };
   });
+
+  const entries = data.entries.map(entry => {
+    if(!entry) fail();
+
+    unique(entry.id);
+
+    if(
+      !subjectIds.has(entry.subject) ||
+      !Object.hasOwn(kinds,entry.kind) ||
+      !str(entry.title,240) ||
+      !entry.title.trim() ||
+      !str(entry.notes,50000) ||
+      !validDate(entry.date) ||
+      !validDate(entry.due) ||
+      !number(entry.minutes,1440) ||
+      !number(entry.actual,1440) ||
+      typeof entry.done!=="boolean" ||
+      !Array.isArray(entry.subtasks) ||
+      entry.subtasks.length>1000 ||
+      !Array.isArray(entry.files) ||
+      entry.files.length>1000 ||
+      (
+        ["study","weekly","exam","deadline","event"].includes(entry.kind) &&
+        !entry.date
+      )
+    ) {
+      fail();
+    }
+
+    const subtasks = entry.subtasks.map(subtask => {
+      if(!subtask) fail();
+      unique(subtask.id);
+
+      if(
+        !str(subtask.text,50000) ||
+        !subtask.text.trim() ||
+        typeof subtask.done!=="boolean"
+      ) {
+        fail();
+      }
+
+      return {
+        id:subtask.id,
+        text:subtask.text,
+        done:subtask.done
+      };
+    });
+
+    const files = entry.files.map(file => {
+      if(!file) fail();
+      unique(file.id);
+
+      if(
+        !str(file.name,1000) ||
+        !file.name ||
+        !number(file.size,10*1024*1024) ||
+        !str(file.data,15*1024*1024) ||
+        !/^data:[^,]*;base64,[A-Za-z0-9+/]*={0,2}$/.test(file.data)
+      ) {
+        fail();
+      }
+
+      try {
+        const raw = atob(file.data.slice(file.data.indexOf(",")+1));
+        if(raw.length!==file.size) fail();
+      } catch {
+        fail();
+      }
+
+      return {
+        id:file.id,
+        name:file.name,
+        size:file.size,
+        data:file.data
+      };
+    });
+
+    return {
+      id:entry.id,
+      subject:entry.subject,
+      kind:entry.kind,
+      title:entry.title,
+      date:entry.date,
+      due:entry.due,
+      minutes:entry.minutes,
+      actual:entry.actual,
+      notes:entry.notes,
+      done:entry.done,
+      subtasks,
+      files
+    };
+  });
+
+  /* Fehlende Fächer in älteren Daten und Backups ergänzen. */
+  for(let index=subjects.length; index<names.length; index++) {
+    subjects.push({
+      id:"s"+index,
+      name:names[index],
+      grade:"",
+      hours:"",
+      notes:""
+    });
+  }
+
   return {version:1,subjects,entries};
 }
-document.addEventListener("click",async event=>{
-  const button=event.target.closest("button");
-  if(!button||button.disabled) return;
-  const d=button.dataset;
+
+document.addEventListener("click",async event => {
+  const button = event.target.closest("button");
+  if(!button || button.disabled) return;
+
+  const data = button.dataset;
+
+  if(data.close) {
+    $(data.close).close();
+    return;
+  }
+
+  if(!state) return;
+
   try {
-    if(d.view) { view=d.view; render(); }
-    else if(button.id==="add") editEntry();
-    else if(d.close) $(d.close).close();
-    else if(d.edit) editEntry(d.edit);
-    else if(d.shift) { selected=shift(selected,Number(d.shift)); render(); }
-    else if(button.id==="today") { selected=today(); render(); }
-    else if(d.subjectview) { filter=d.subjectview; view="all"; render(); }
-    else if(d.goal) {
-      const s=state.subjects.find(s=>s.id===d.goal), f=$("goalForm");
-      f.elements.subjectId.value=s.id;
-      f.elements.grade.value=s.grade;
-      f.elements.hours.value=s.hours;
-      f.elements.notes.value=s.notes;
-      $("goalTitle").textContent=s.name+" – Ziele";
+    if(data.view) {
+      view = data.view;
+      render();
+    } else if(button.id==="add") {
+      editEntry();
+    } else if(data.edit) {
+      editEntry(data.edit);
+    } else if(data.shift) {
+      selected = shift(selected,Number(data.shift));
+      render();
+    } else if(button.id==="today") {
+      selected = today();
+      render();
+    } else if(data.subjectview) {
+      filter = data.subjectview;
+      view = "all";
+      render();
+    } else if(data.goal) {
+      const subject = state.subjects.find(subject =>
+        subject.id===data.goal
+      );
+      const form = $("goalForm");
+
+      form.elements.subjectId.value = subject.id;
+      form.elements.grade.value = subject.grade;
+      form.elements.hours.value = subject.hours;
+      form.elements.notes.value = subject.notes;
+
+      $("goalTitle").textContent = subject.name+" – Ziele";
       $("goalEditor").showModal();
-    }
-    else if(d.delete) {
-      if(confirm("Diesen Eintrag einschließlich seiner Anhänge löschen?"))
-        await mutate(next=>next.entries=next.entries.filter(e=>e.id!==d.delete));
-    }
-    else if(d.file) await downloadFile(d.file,d.fileid);
-    else if(d.removefile) {
-      removedFiles.add(d.removefile);
-      drawExistingFiles(state.entries.find(e=>e.id===$("entryForm").elements.id.value));
-    }
-    else if(button.id==="export") {
-      await queue;
-      download(new Blob([JSON.stringify(state)],{type:"application/json"}),
-        "UniPlan-Backup-"+today()+".json");
-      toast("Backup-Download gestartet.");
-    }
-    else if(button.id==="import") $("backupFile").click();
-  } catch(error) { report(error); }
-});
-document.addEventListener("change",async event=>{
-  const input=event.target, d=input.dataset;
-  try {
-    if(d.toggle) {
-      const checked=input.checked;
-      input.disabled=true;
-      await mutate(next=>{
-        const e=next.entries.find(e=>e.id===d.toggle);
-        if(e) e.done=checked;
-      });
-    }
-    else if(d.sub) {
-      const checked=input.checked;
-      input.disabled=true;
-      await mutate(next=>{
-        const s=next.entries.find(e=>e.id===d.sub)?.subtasks.find(s=>s.id===d.subid);
-        if(s) s.done=checked;
-      });
-    }
-    else if(input.id==="selectedDate" && input.value) {
-      selected=input.value; render();
-    }
-    else if(input.id==="filter") { filter=input.value; render(); }
-    else if(input.id==="showDone") { showDone=input.checked; render(); }
-    else if(input.id==="backupFile" && input.files[0]) {
-      const file=input.files[0];
-      if(file.size>250*1024*1024) throw new Error("Backup ist größer als 250 MB.");
-      const restored=validateBackup(JSON.parse(await file.text()));
-      if(confirm("Aktuelle Einträge und Anhänge durch dieses Backup ersetzen? Erstelle vorher bei Bedarf ein Backup.")) {
-        await mutate(next=>{
-          next.version=restored.version;
-          next.subjects=restored.subjects;
-          next.entries=restored.entries;
+    } else if(data.delete) {
+      if(confirm("Diesen Eintrag einschließlich seiner Anhänge löschen?")) {
+        await mutate(next => {
+          next.entries = next.entries.filter(entry =>
+            entry.id!==data.delete
+          );
         });
-        toast("Backup wiederhergestellt.");
       }
-      input.value="";
+    } else if(data.file) {
+      await downloadFile(data.file,data.fileid);
+    } else if(data.removefile) {
+      removedFiles.add(data.removefile);
+      drawExistingFiles(state.entries.find(entry =>
+        entry.id===$("entryForm").elements.id.value
+      ));
+    } else if(button.id==="export") {
+      await queue;
+
+      download(
+        new Blob([JSON.stringify(state)],{type:"application/json"}),
+        "UniPlan-Backup-"+today()+".json"
+      );
+
+      toast("Backup-Download gestartet.");
+    } else if(button.id==="import") {
+      $("backupFile").click();
     }
   } catch(error) {
     report(error);
-    if(d.toggle||d.sub) render();
-    if(input.id==="backupFile") input.value="";
   }
 });
-(async()=>{
+
+document.addEventListener("change",async event => {
+  if(!state) return;
+
+  const input = event.target;
+  const data = input.dataset;
+
   try {
-    db=await openDB();
-    const stored=await readDB();
-    state=stored?validateBackup(stored):blank();
-    if(!stored) await writeDB(state);
+    if(data.toggle) {
+      const checked = input.checked;
+      input.disabled = true;
+
+      await mutate(next => {
+        const entry = next.entries.find(entry =>
+          entry.id===data.toggle
+        );
+        if(entry) entry.done = checked;
+      });
+    } else if(data.sub) {
+      const checked = input.checked;
+      input.disabled = true;
+
+      await mutate(next => {
+        const subtask = next.entries
+          .find(entry => entry.id===data.sub)
+          ?.subtasks.find(subtask => subtask.id===data.subid);
+
+        if(subtask) subtask.done = checked;
+      });
+    } else if(input.id==="selectedDate" && input.value) {
+      selected = input.value;
+      render();
+    } else if(input.id==="filter") {
+      filter = input.value;
+      render();
+    } else if(input.id==="showDone") {
+      showDone = input.checked;
+      render();
+    } else if(input.id==="backupFile" && input.files[0]) {
+      const file = input.files[0];
+
+      if(file.size>250*1024*1024) {
+        throw new Error("Backup ist größer als 250 MB.");
+      }
+
+      const restored = validateBackup(JSON.parse(await file.text()));
+
+      if(confirm(
+        "Aktuelle Einträge und Anhänge durch dieses Backup ersetzen? "+
+        "Erstelle vorher bei Bedarf ein Backup."
+      )) {
+        await mutate(next => {
+          next.version = restored.version;
+          next.subjects = restored.subjects;
+          next.entries = restored.entries;
+        });
+
+        toast("Backup wiederhergestellt.");
+      }
+
+      input.value = "";
+    }
+  } catch(error) {
+    report(error);
+
+    if(data.toggle || data.sub) render();
+    if(input.id==="backupFile") input.value = "";
+  }
+});
+
+(async () => {
+  try {
+    db = await openDB();
+
+    const stored = await readDB();
+    const loaded = stored ? validateBackup(stored) : blank();
+
+    /* Ergänzte Fächer speichern, bevor die App freigegeben wird. */
+    if(!stored || stored.subjects.length!==loaded.subjects.length) {
+      await writeDB(loaded);
+    }
+
+    state = loaded;
+    $("add").disabled = false;
     render();
   } catch(error) {
-    $("add").disabled=true;
-    $("main").innerHTML=`<section class="card"><h1>Speicher nicht verfügbar</h1>
-      <p>Die App konnte ihre lokalen Daten nicht öffnen. Prüfe, ob Website-Speicher
-      in Safari verfügbar ist, und verwende die veröffentlichte Webadresse.</p>
-      <p>Vorhandene Daten wurden nicht überschrieben.</p></section>`;
+    state = undefined;
+    $("add").disabled = true;
+
+    $("main").innerHTML = `
+      <section class="card">
+        <h1>Daten konnten nicht geöffnet werden</h1>
+        <p>
+          Die App konnte ihre lokalen Daten nicht laden.
+          Vorhandene Daten wurden nicht überschrieben.
+        </p>
+        <p>
+          Prüfe, ob Website-Speicher in Safari verfügbar ist,
+          und verwende dieselbe Webadresse wie bisher.
+          Lösche keine Website-Daten, wenn du noch kein Backup hast.
+        </p>
+      </section>
+    `;
+
     report(error);
   }
 })();
